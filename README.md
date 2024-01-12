@@ -2,6 +2,40 @@ This assignment will allow you to practice with the newly discovered class-based
 
 # Exercise
 
+# Setup
+
+## Installation
+
+```bash
+$ pnpm install
+```
+
+## Running the app
+
+```bash
+# development
+$ pnpm run start
+
+# watch mode
+$ pnpm run start:dev
+
+# production mode
+$ pnpm run start:prod
+```
+
+## Test
+
+```bash
+# unit tests
+$ pnpm run test
+
+# e2e tests
+$ pnpm run test:e2e
+
+# test coverage
+$ pnpm run test:cov
+```
+
 # CornerCoin (CNC) Crypto App
 
 You've been hired to work on a new crypto currency app to manage CornerCoins (aka CNC coins).
@@ -44,13 +78,13 @@ Every account holder of this app will have a balance that they can withdraw from
 ```js
 t1 = new Withdrawal(50.25);
 t1.commit();
-console.log("Transaction 1:", t1);
+console.log('Transaction 1:', t1);
 
 t2 = new Withdrawal(9.99);
 t2.commit();
-console.log("Transaction 2:", t2);
+console.log('Transaction 2:', t2);
 
-console.log("Balance:", balance);
+console.log('Balance:', balance);
 ```
 
 To withdraw money, the application logic requires that a new instance of a Withdrawal object be created with the desired amount. The commit method should then be called in order to finalize and apply that transaction to the account's balance.
@@ -78,7 +112,7 @@ We have a way to withdraw money from the user's balance, but no way of depositin
 // Add this code to test your Deposit class
 t3 = new Deposit(120.0);
 t3.commit();
-console.log("Transaction 3:", t3);
+console.log('Transaction 3:', t3);
 ```
 
 ## Step 2: Account class
@@ -98,7 +132,7 @@ Now we can create a new account for every user of the app.
 - Add the following account creation code to the top of your driver code
 
 ```js
-const myAccount = new Account("snow-patrol");
+const myAccount = new Account('snow-patrol');
 ```
 
 ## Step 3: Refactor Deposit and Withdrawal classes
@@ -152,6 +186,6 @@ Right now we keep updating a balance property and we're not keeping track of eac
 
 There is currently nothing checking if the user has money in their account prior to allowing a withdrawal. If the user has $0 and they want to keep withdrawing from their account, there is nothing stopping them. Add some logic to make sure the user can never withdraw more money than they have.
 
-*Tip:* One way to do this is to add a check that the transaction is allowed in the Transaction's commit method. The check should call a method like `isAllowed()` which returns true/false and would need to be implemented in each of the two subclasses. commit should return true/false based on its success. If it's not successful, the transaction should not be added into the account either.
+_Tip:_ One way to do this is to add a check that the transaction is allowed in the Transaction's commit method. The check should call a method like `isAllowed()` which returns true/false and would need to be implemented in each of the two subclasses. commit should return true/false based on its success. If it's not successful, the transaction should not be added into the account either.
 
 > Note: Remember to test your code with some additional driver code that tests this validation
