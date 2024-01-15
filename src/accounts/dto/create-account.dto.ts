@@ -1,4 +1,3 @@
-export class CreateAccountDto {
-  readonly name: string;
-  readonly balance: number;
-}
+import { Prisma } from '@prisma/client';
+
+export type CreateAccountDto = Prisma.AccountCreateInput;
