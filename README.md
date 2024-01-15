@@ -53,6 +53,22 @@ Here's a list of features that our code needs to support:
 - Allow us to retrieve the current balance of the account at any time
 - Don't allow withdrawals that exceed the remaining balance of the account
 
+
+```mermaid
+erDiagram
+    Account ||--o{ Transaction : has
+    Transaction {
+        int id PK
+        string type
+        float amount
+        datetime timestamp
+    }
+    Account {
+        int id PK
+        float balance
+    }
+```
+
 Okay, so there's really nothing here that has anything to do with crypto. We just wanted to make it sound more fun than traditional banking software. That's what fads are for after all. That's right, I called crypto currencies a fad.
 
 Here's the current state of the application logic:

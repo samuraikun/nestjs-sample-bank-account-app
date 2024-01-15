@@ -1,13 +1,12 @@
 import { Controller, Get } from '@nestjs/common';
-import { AccountService } from './account.service';
-import { Account as AccountModel } from '@prisma/client';
+import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly accountService: AccountService) { }
+  constructor(private readonly appService: AppService) { }
 
   @Get()
-  async getAccount(): Promise<AccountModel> {
-    return this.accountService.account({ id: 1 });
+  getHello(): string {
+    return this.appService.getHello();
   }
 }
